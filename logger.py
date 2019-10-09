@@ -13,25 +13,42 @@ class Logger(object):
         # TODO:  Finish this initialization method. The file_name passed should
         # be the
         # full file name of the file that the logs will be written to.
-        self.file_name = None
+        self.file_name = file_name
 
     def write_metadata(self, pop_size, vacc_percentage,
                        virus_name, mortality_rate, basic_repro_num):
-        """
-        The simulation class should use this method immediately to log the
-        specific
-        parameters of the simulation as the first line of the file.
-        """
-        # TODO: Finish this method. This line of metadata should be
-        # tab-delimited
-        # it should create the text file that we will store all logs in.
-        # TIP: Use 'w' mode when you open the file. For all other methods, use
-        # the 'a' mode to append a new log to the end, since 'w' overwrites the
-        # file.
-        # NOTE: Make sure to end every line with a '/n' character to ensure
-        # that each
-        # event logged ends up on a separate line!
-        pass
+                       # The simulation class should use this method immediately to log the
+                       # specific
+                       # parameters of the simulation as the
+                       # TODO: Finish this method. This line of metadata should be
+                       # tab-delimited
+                       # it should create the text file that we will store all logs in.
+                       # TIP: Use 'w' mode when you open the file. For all other methods, use
+                       # the 'a' mode to append a new log to the end, since 'w' overwrites the
+                       # file.
+                       # NOTE: Make sure to end every line with a '/n' character to ensure
+                       # that each
+                       # event logged ends up on a separate line!
+
+        file = open(self.file_name, "w+")
+        metadata = (f'Pop_size: {pop_size}\n" +
+        f'Vacc_percentage: {vacc_percentage}\n" +
+        f'Virus_name: {virus_name}\n" +
+        f'Mortality_rate {mortality_rate}\n" +
+        f'Basic_Repro_Num {basic_repro_num}\n")
+
+        file.write(metadata)
+        file.close()
+
+
+
+
+
+
+
+
+
+
 
     def log_interaction(self, person, random_person, random_person_sick=None,
                         random_person_vacc=None, did_infect=None):
@@ -52,7 +69,9 @@ class Logger(object):
         # determine
         # exactly what happened in the interaction and create a String, and
         # write to your logfile.
-        pass
+
+
+
 
     def log_infection_survival(self, person, did_die_from_infection):
         r"""
@@ -66,7 +85,7 @@ class Logger(object):
         # did_die_from_infection
         # should be False.  Otherwise, did_die_from_infection should be True.
         # Append the results of the infection to the logfile
-        pass
+
 
     def log_time_step(self, time_step_number):
         r"""
