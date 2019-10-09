@@ -42,14 +42,6 @@ class Logger(object):
 
 
 
-
-
-
-
-
-
-
-
     def log_interaction(self, person, random_person, random_person_sick=None,
                         random_person_vacc=None, did_infect=None):
         r"""
@@ -69,6 +61,18 @@ class Logger(object):
         # determine
         # exactly what happened in the interaction and create a String, and
         # write to your logfile.
+        file = open(self.file_name, "a")
+
+        If did_infect == True and random_person_sick == False and random_person_vacc == False
+        file.write(f"{person._id} infected {random_person.id}"\n
+
+        If did_infect == True and random_person_sick == False and random_person_vacc == True
+        file.write(f"{random_person.id} was not infected by {person._id}"\n)
+
+        If did_infect == False and random_person_sick == True and random_person_vacc == False
+        file.write(f"{random_person.id} is already sick and can't be infected by {person._id}"\n)
+
+        file.close()
 
 
 
