@@ -63,14 +63,14 @@ class Logger(object):
         # write to your logfile.
         file = open(self.file_name, "a")
 
-        If did_infect == True and random_person_sick == False and random_person_vacc == False
-        file.write(f"{person._id} infected {random_person.id}"\n
+        if did_infect == True and random_person_sick == False and random_person_vacc == False
+            file.write(f"{person._id} infected {random_person.id}"\n
 
-        If did_infect == True and random_person_sick == False and random_person_vacc == True
-        file.write(f"{random_person.id} was not infected by {person._id}"\n)
+        if did_infect == True and random_person_sick == False and random_person_vacc == True
+            file.write(f"{random_person.id} was not infected by {person._id}"\n)
 
-        If did_infect == False and random_person_sick == True and random_person_vacc == False
-        file.write(f"{random_person.id} is already sick and can't be infected by {person._id}"\n)
+        if did_infect == False and random_person_sick == True and random_person_vacc == False
+            file.write(f"{random_person.id} is already sick and can't be infected by {person._id}"\n)
 
         file.close()
 
@@ -89,6 +89,19 @@ class Logger(object):
         # did_die_from_infection
         # should be False.  Otherwise, did_die_from_infection should be True.
         # Append the results of the infection to the logfile
+
+        file = open(self.file_name, "a")
+        
+        if did_die_from_infection == True
+            file.write(f"{person.id} died from infection\n")
+
+        if did_die_from_infection == False
+            file.write(f"{person.id} has not died from infection\n")
+
+        file.close()
+
+
+
 
 
     def log_time_step(self, time_step_number):
