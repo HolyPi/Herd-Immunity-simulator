@@ -18,6 +18,8 @@ class Simulation(object):
     program is run.
     """
 
+
+
     def __init__(self, pop_size, vacc_percentage, virus, initial_infected=1):
         """
         Logger object logger records all events during the simulation.
@@ -49,8 +51,7 @@ class Simulation(object):
         # attribute.
         # At the end of each time step, call self._infect_newly_infected()
         # and then reset .newly_infected back to an empty list.
-        self.logger = None
-        self.population = []  # List of Person objects
+        self.logger = self.logger  # List of Person objects
         self.pop_size = pop_size  # Int
         self.next_person_id = 0  # Int
         self.virus = virus  # Virus object
@@ -61,6 +62,7 @@ class Simulation(object):
         self.total_dead = 0  # Int
         self.file_name = "{}_simulation_pop_{}_vp_{}_infected_{}.txt".format(
             virus_name, pop_size, vacc_percentage, initial_infected)
+        self.population = self._create_population(initial_infected)
         self.newly_infected = []
 
     def _create_population(self, initial_infected):
@@ -86,7 +88,20 @@ class Simulation(object):
         # Use the attributes created in the init method to create a population
         # that has
         # the correct intial vaccination percentage and initial infected.
-        pass
+        population = []
+
+        for person_index in range(self.pop_size):
+            vaccinated = False
+            vaccination_percentage = random.random
+        if vacc_percentage
+
+
+
+
+
+
+
+
 
     def _simulation_should_continue(self):
         """
@@ -97,7 +112,8 @@ class Simulation(object):
                 end.
         """
         # TODO: Complete this helper method.  Returns a Boolean.
-        pass
+        for person in self.population:
+            if person.is_Alive == True and p
 
     def run(self):
         """
