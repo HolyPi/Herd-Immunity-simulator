@@ -158,7 +158,7 @@ class Simulation(object):
         while should_continue:
             print('The simulation has ended after',
                   '{time_step_counter} turns.'.format(time_step_counter))
-        pass
+
 
     def time_step(self):
         """
@@ -179,7 +179,9 @@ class Simulation(object):
                 counter = 0
                 while counter < 100:
             random_person = random.choice(self.population)
-            
+            if random_person.is_alive == True
+                counter +=1
+
 
 
         # TODO: Finish this method.
@@ -214,7 +216,12 @@ class Simulation(object):
         #     Simulation object's newly_infected array, so that their .infected
         #     attribute can be changed to True at the end of the time step.
         # TODO: Call slogger method during this method.
-        pass
+
+
+        if random_person.is_vaccinated == True:
+
+            self.logger.log_interaction(person, random_person)
+
 
     def _infect_newly_infected(self):
         """
@@ -228,8 +235,9 @@ class Simulation(object):
         # TODO: Once you have iterated through the entire list of
         # self.newly_infected, remember
         # to reset self.newly_infected back to an empty list.
-         for _id in self.newly_infected:
+         for  _id in self.newly_infected:
             self.population[_id].infection = self.virus
+            self.total_infected += 1
         self.newly_infected = []
 
 
