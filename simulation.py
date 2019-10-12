@@ -65,7 +65,7 @@ class Simulation(object):
         self.population = self._create_population(initial_infected)
         self.newly_infected = []
 
-    def _create_population(self, initial_infected):
+    def _create_population(self, initial_infected, vacc_percentage):
         """
         This method will create the initial population.
             Args:
@@ -89,17 +89,22 @@ class Simulation(object):
         # that has
         # the correct intial vaccination percentage and initial infected.
         population = []
-
-        for person_index in range(self.pop_size):
+        for i in range(self.pop_size):
             vaccinated = False
-            vaccination_percentage = random.random
-        if vacc_percentage
+            vacc_chance = (random.randint(0,100) / 100)
+        if vacc_percentage > 0 and vacc_chance <= vacc_percentage):
+            vaccinated = True
 
+        person = Person(i, vaccinated)
+        population.append(person)
 
+        people_infected = []
 
+        for person in self.population:
+            while person.infected and person.is_alive:
+                people_infected.append(person)
 
-
-
+            return people_infected
 
 
 
@@ -111,9 +116,17 @@ class Simulation(object):
                 bool: True for simulation should continue, False if it should
                 end.
         """
-        # TODO: Complete this helper method.  Returns a Boolean.
+
         for person in self.population:
-            if person.is_Alive == True and p
+            if person.infection == True and person._is_alive == True:
+                return True
+
+            return False
+
+
+
+
+
 
     def run(self):
         """
@@ -134,9 +147,15 @@ class Simulation(object):
         should_continue = None
 
         while should_continue:
-            # TODO: for every iteration of this loop, call self.time_step() to
-            # compute another
-            # round of this simulation.
+            self.time_step()
+            time_step_counter += 1
+            should_continue = self._simulation_should_continue()
+
+    # TODO: for every iteration of this loop, call self.time_step() to
+    # compute another
+    # round of this simulation.
+
+        while should_continue:
             print('The simulation has ended after',
                   '{time_step_counter} turns.'.format(time_step_counter))
         pass
@@ -155,6 +174,13 @@ class Simulation(object):
             3. Otherwise call simulation.interaction(person, random_person) and
                 increment interaction counter by 1.
         """
+        for infected in self.population:
+            if infected.infection == True and infected.is_alive == True:
+                counter = 0
+                while counter < 100:
+            random_person = random.choice(self.population)
+            
+
 
         # TODO: Finish this method.
         pass
@@ -202,7 +228,10 @@ class Simulation(object):
         # TODO: Once you have iterated through the entire list of
         # self.newly_infected, remember
         # to reset self.newly_infected back to an empty list.
-        pass
+         for _id in self.newly_infected:
+            self.population[_id].infection = self.virus
+        self.newly_infected = []
+
 
 
 if __name__ == "__main__":
