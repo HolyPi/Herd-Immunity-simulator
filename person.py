@@ -23,16 +23,17 @@ class Person(object):
         self.infection = infection  # Virus object or None
 
     def did_survive_infection(self):
-        random_chance = random.randint(0,100) / 100
+        random_chance = random.random()
         print(random_chance)
         if random_chance < self.infection.mortality_rate:
             self.is_alive = False
+            return False
+
         elif random_chance > self.infection.mortality_rate:
-            self.is_alive = True
             self.is_vaccinated = True
             self.infection = None
+            return True
 
-        return self.is_alive
         """
         Generate a random number and compare to virus's mortality_rate.
         If random number is smaller, person dies from the disease.

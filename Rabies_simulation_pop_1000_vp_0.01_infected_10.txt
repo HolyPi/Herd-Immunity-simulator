@@ -2,6 +2,7 @@ Pop_size: 1000
 Vacc_percentage: 0.01
 Virus_name: Rabies
 Mortality_rate 0.999
+Repro_rate 0.014
 62 infected 134
 62 is already sick and can't be infected by 62
 101 is already sick and can't be infected by 62
