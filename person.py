@@ -6,7 +6,7 @@ from virus import Virus
 class Person(object):
     """Person objects will populate the simulation."""
 
-    def __init__(self, _id, is_vaccinated=None, infection=None):
+    def __init__(self, _id, is_vaccinated=False, infection=None):
         """
         We start out with is_alive = True, because we don't make vampires or
         zombies.
@@ -24,6 +24,7 @@ class Person(object):
 
     def did_survive_infection(self):
         random_chance = random.randint(0,100) / 100
+        print(random_chance)
         if random_chance < self.infection.mortality_rate:
             self.is_alive = False
         elif random_chance > self.infection.mortality_rate:
@@ -31,6 +32,7 @@ class Person(object):
             self.is_vaccinated = True
             self.infection = None
 
+        return self.is_alive
         """
         Generate a random number and compare to virus's mortality_rate.
         If random number is smaller, person dies from the disease.

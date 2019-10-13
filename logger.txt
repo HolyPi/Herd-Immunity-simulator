@@ -1,0 +1,4 @@
+Pop_size: 1000
+Vacc_percentage: 0.01
+Virus_name: Rabies
+Mortality_rate 0.999
