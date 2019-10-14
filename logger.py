@@ -30,13 +30,14 @@ class Logger(object):
                        # that each
                        # event logged ends up on a separate line!
 
-        file = open(self.file_name, "w+")
+
         metadata = (f'Pop_size: {pop_size}\n' +
         f'Vacc_percentage: {vacc_percentage}\n' +
         f'Virus_name: {virus_name}\n' +
         f'Mortality_rate {mortality_rate}\n' +
         f'Repro_rate {repro_rate}\n')
 
+        file = open(self.file_name, "w+")
         file.write(metadata)
         file.close()
 
@@ -61,18 +62,20 @@ class Logger(object):
         # determine
         # exactly what happened in the interaction and create a String, and
         # write to your logfile.
-        file = open(self.file_name, "a")
+        data_file = open(self.file_name, "a")
 
-        if did_infect == True and random_person_vacc == False and random_person_sick == True:
-            file.write(f"{person._id} infected {random_person._id}\n")
+        if random_person_sick == True:
+            if did_infect == False and random_person_vacc == False:
+                data_file.write(f"{person._id} infected {random_person._id}\n")
 
-        if did_infect == False and random_person_vacc == True and random_person_sick == False:
-            file.write(f"{random_person._id} was not infected by {person._id}\n")
+            elif did_infect == False and random_person_vacc == False:
+                data_file.write(f"{random_person._id} is already sick and can't be infected by {person._id}\n")
 
-        if did_infect == False and random_person_vacc == False and random_person_sick == True:
-            file.write(f"{random_person._id} is already sick and can't be infected by {person._id}\n")
+        elif did_infect == False and random_person_vacc == True and random_person_sick == False:
+            data_file.write(f"{random_person._id} was not infected by {person._id}\n")
 
-        file.close()
+        data_file.write
+        data_file.close()
 
 
 
@@ -91,15 +94,17 @@ class Logger(object):
         # should be False.  Otherwise, did_die_from_infection should be True.
         # Append the results of the infection to the logfile
 
-        file = open(self.file_name, "a")
+        with open(self.file_name, mode = "a") as file:
+            file.write("Infection survival: ")
 
-        if did_die_from_infection == True:
-            file.write(f"{person.id} died from infection\n")
 
-        else:
-            file.write(f"{person.id} has not died from infection\n")
+            if did_die_from_infection == True:
+                file.write(f"{person._id} died from infection\n")
 
-        file.close()
+            else:
+                file.write(f"{person._id} has not died from infection\n")
+
+
 
 
 
@@ -127,5 +132,5 @@ class Logger(object):
         # ends, and a
         # new one begins.
         # NOTE: Here is an opportunity for a stretch challenge!
-        while open(self.file_name, mode = "a"):
+        with open(self.file_name, mode = "a") as file:
             file.write(f'Time step {time_step_number} ended, beginning {time_step_number+1}\n')

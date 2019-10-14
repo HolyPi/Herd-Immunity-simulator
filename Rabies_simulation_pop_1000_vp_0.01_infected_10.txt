@@ -3,44 +3,44 @@ Vacc_percentage: 0.01
 Virus_name: Rabies
 Mortality_rate 0.999
 Repro_rate 0.014
-62 infected 134
-62 is already sick and can't be infected by 62
-101 is already sick and can't be infected by 62
-376 is already sick and can't be infected by 62
-101 infected 359
-101 infected 122
+62 infected 62
+62 infected 101
+62 infected 376
 882 was not infected by 101
 19 was not infected by 101
 882 was not infected by 101
 427 was not infected by 101
 290 was not infected by 282
-376 is already sick and can't be infected by 367
-367 infected 630
+367 infected 376
 19 was not infected by 367
 124 was not infected by 367
-367 infected 439
-557 is already sick and can't be infected by 367
+367 infected 557
 882 was not infected by 376
-660 is already sick and can't be infected by 376
-407 is already sick and can't be infected by 376
+376 infected 660
+376 infected 407
 297 was not infected by 376
 124 was not infected by 376
-407 is already sick and can't be infected by 376
+376 infected 407
 882 was not infected by 407
 297 was not infected by 407
 19 was not infected by 557
 124 was not infected by 557
 297 was not infected by 557
-660 infected 140
 427 was not infected by 660
-376 is already sick and can't be infected by 660
-702 infected 836
-702 infected 854
-557 is already sick and can't be infected by 702
-282 is already sick and can't be infected by 702
-62 is already sick and can't be infected by 702
-923 infected 310
-367 is already sick and can't be infected by 923
+660 infected 376
+702 infected 557
+702 infected 282
+702 infected 62
+923 infected 367
 427 was not infected by 923
-923 infected 16
-923 infected 421
+Infection survival: 62 died from infection
+Infection survival: 101 died from infection
+Infection survival: 282 died from infection
+Infection survival: 367 died from infection
+Infection survival: 376 died from infection
+Infection survival: 407 died from infection
+Infection survival: 557 died from infection
+Infection survival: 660 died from infection
+Infection survival: 702 died from infection
+Infection survival: 923 died from infection
+Time step 1 ended, beginning 2
